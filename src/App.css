@@ -1,0 +1,29 @@
+body {
+  background-color: #e9f0ee;
+  font: normal 15pt Arial;
+}
+header {
+  color: rgb(0, 0, 0);
+  padding: 1em;
+  text-align: center;
+  font-style: calibri;
+  border-radius: 5px;
+}
+text {
+  text-align: center;
+}
+h1 {
+  color: rgb(0, 0, 0);
+  font-style: calibri;
+  align-content: center;
+  text-align: center;
+}
+section {
+  margin: auto;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgb(56, 55, 55);
+}

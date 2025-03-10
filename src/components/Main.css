@@ -1,0 +1,58 @@
+.main {
+  background-color: rgb(215, 238, 241);
+  padding: 30px;
+  margin: 50px auto;
+  max-width: 500px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form input[type="text"] {
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  min-width: 80%;
+  font-size: 20px;
+}
+.form button[type="submit"] {
+  border: none;
+  margin: auto;
+  height: 40px;
+  width: 40px;
+  display: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(3, 70, 33);
+  color: white;
+}
+.task {
+  margin-top: 30px;
+}
+.task li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+.task li:hover {
+  background: rgb(173, 218, 224);
+}
+.task li .edit {
+  margin-right: 10px;
+  color: rgb(25, 61, 46);
+  cursor: pointer;
+}
+.task li .delete {
+  margin-right: 15px;
+  color: rgb(240, 6, 6);
+  cursor: pointer;
+}
+.task li .span {
+  display: inline-block;
+  align-items: center;
+}
