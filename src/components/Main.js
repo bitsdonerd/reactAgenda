@@ -1,7 +1,8 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
-import { FaPlus, FaEdit, FaWindowClose } from "react-icons/fa";
 import "./Main.css";
+import Form from "./form/index";
+import Task from "./task/task";
 
 export default class Main extends Component {
     state = {
@@ -12,12 +13,18 @@ export default class Main extends Component {
 
     // Salva os dados no localStorage
     componentDidMount() {
-
+        const task = JSON.parse(localStorage.getItem("task")) || [];
+        if (Array.isArray(task)) {
+            this.setState({ task });
+        }
     }
 
     // Carrega as tarefas do localStorage
     componentDidUpdate(prevProps, prevState) {
 
+        if (this.state.task !== prevState.task) {
+            localStorage.setItem("task", JSON.stringify(this.state.task));
+        }
     }
 
     // Captura o valor do input
@@ -42,7 +49,7 @@ export default class Main extends Component {
         } else {
             newsTaks[index] = newTask;
             this.setState({
-                task: [newsTaks],
+                task: [...newsTaks],
                 index: -1,
             })
         }
@@ -73,24 +80,20 @@ export default class Main extends Component {
             <div className="main">
                 <h1>Lista de Tarefas</h1>
 
-                <form onSubmit={this.handleSubmit} action="#" className="form">
-                    <input type="text" onChange={this.handleInput} value={newTask} />
-                    <button type="submit" >
-                        <FaPlus />
-                    </button>
-                </form>
+                <Form
+                    handleSubmit={this.handleSubmit}
+                    handleInput={this.handleInput}
+                    newTask={newTask}
+                />
 
-                <ul className="task">
-                    {task.map((t, index) => (
-                        <li key={t}>{t}
-                            <span>
-                                <FaEdit onClick={(e) => this.handleEdit(e, index)} className="edit" />
-                                <FaWindowClose onClick={(e) => this.handleDelete(e, index)} className="delete" />
-                            </span>
-                        </li>
-                    ))}
-                </ul>
+                <Task
+                    handleEdit={this.handleEdit}
+                    handleDelete={this.handleDelete}
+                    task={task}
+                />
             </div>
+
+
         );
     }
 }
